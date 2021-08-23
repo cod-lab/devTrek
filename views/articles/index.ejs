@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/stylesheets/index.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/footer.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css"/>
+
+    <title>Blogs</title>
+</head>
+<body onload="fromOtherPg('<%= activeLikeBtns %>','<%= srcPg %>')">
+    <div class="container">
+        <h1 class="mt-4 mb-4 text-center">devTrek<p class="d-inline blink">_</p> &#128187;</h1>
+        <br>
+        <div class="row">
+            <div class="col" id="head"><h2>Blog Articles &#128218;</h2></div>
+            <div class="col text-right" id="head"><a href="/articles/new" class="btn new" onclick="mouseClickNew('<%= activeLikeBtns %>')">New Article &#9997;</a></div>
+        </div>
+
+        <% articles.forEach(article => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= article.title %></h4>
+                    <!-- <div class="card-subtitle text-muted mb-2" title="createdAt"><%= article.createdAt %></div> -->
+                    <div class="card-subtitle text-muted mb-2 createdAt">
+                        <%= article.displayDate %>
+                        <span>createdAt</span>
+                    </div>
+                    <div class="card-text mb-4"><%- article.modifiedDesc %></div>
+
+                    <div class="row">
+                        <div class="col">
+                            <!-- <a href="/articles/<%= article.id %>" class="btn btn-primary">Read More &#129488;</a> -->
+                            <a href="/articles/<%= article.id %>" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>')">Read More &#129488;</a>
+                            <a href="/articles/edit/<%= article.id %>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>')">Edit &#128221;</a>
+                            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete &#128465;</button>
+                            </form>
+                        </div>
+
+                        <!-- <div class="col"><p class="text-right">&#10084; </p></div> -->
+                        <div class="col text-right mt-2">
+                            <!-- &#9899; &#129321; &#128578; -->
+                            <!-- <p class="text-right" id="emoji">☺♥♦♠◘•♣☻✨🕊️​💍​💒<i>by Anonymous</i></p> -->
+                            <!-- <p align="right"> -->
+                            <!-- <div class="row"> -->
+
+                                <!-- <button class="likeBtn" id="<%= article.id %>"
+                                    onmouseover="mouseOverLike(this)"
+                                    onmouseout="mouseOutLike(this)"
+                                    onclick="mouseClickLike(this)"
+                                >♥</button> -->
+                                <!-- <a href="/articles/like/<%= article.id %>" class="like" id="<%= article.id %>" onclick="likeFn('<%= article.id %>','<%= 0 %>')">♥&nbsp;</a> -->
+
+                            <label id="<%= article.id %><%= article.id %>"><%= article.likes %></label>
+                            <a href="#" class="likeBtn" id="<%= article.id %>"
+                                onmouseover="mouseOverLike(this)"
+                                onmouseout="mouseOutLike(this)"
+                                onclick="mouseClickLike(this,'<%= activeLikeBtns %>')"
+                            >
+                                ♥
+                                <span>like</span>
+                            </a>
+
+                            <!-- <input type="button" class="likeBtn" id="<%= article.id %>" value="♥" title="like"
+                                onmouseover="mouseOverLike(this)"
+                                onmouseout="mouseOutLike(this)"
+                                onclick="mouseClickLike(this)"
+                            > -->
+                            <!-- <button class="likeBtn" id="<%= article.id %>"
+                                onmouseover="mouseOverLike(this)"
+                                onmouseout="mouseOutLike(this)"
+                                onclick="mouseClickLike(this)"
+                            >
+                                ♥
+                                <span>like</span>
+                            </button> -->
+                                <!-- <form action="/articles/like/<%= article.id %>?_method=PUT" method="POST"> -->
+                                    <!-- <label for="like"></label> -->
+                                    <!-- <input type="text" class="likeBtnState" id="<%= article.id %><%= article.id %>" name="likeBtnState" readonly>
+                                    <input type="submit" class="likeBtn" id="<%= article.id %>" value="♥"
+                                        onmouseover="mouseOverLike(this)"
+                                        onmouseout="mouseOutLike(this)"
+                                        onclick="mouseClickLike(this)"
+                                    > -->
+                                    <!-- <input type="text" id="like" name="like" placeholder="<%= article.likes %>" readonly><br> -->
+                                <!-- </form> -->
+                            <!-- <p id="<%= article.id %><%= article.id %>" class="text-sm"><%= article.likes %></p> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-md-auto text-muted font-italic "> -->
+                            <label class="editor">By <%= article.name %></label>
+                        </div>
+                            <!-- </div> -->
+                        <!-- </div> -->
+                        <!-- <div class="col-2 text-right"><p class="text-muted font-italic d-inline">By <%= article.name %></p></div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- <br> -->
+        <% }); %>
+    </div>
+    <br>
+    <%- include('_footer') %>       <!-- _footer common to all pages -->
+    <script src="/scripts/index.js"></script>
+    <!-- <script src="/scripts/common.js"></script> -->
+    <!-- <script data-main="/scripts/config" src="/scripts/require.js"></script> -->
+    <!-- <script>require(['/scripts/common'], (x)=>console.log('x',x));</script> -->
+    <!-- <script>require('/scripts/config');</script> -->
+    <!-- <script src="/scripts/dist/bundle.js"></script> -->
+</body>
+</html>
+

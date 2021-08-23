@@ -1,0 +1,23 @@
+setting up environment
+    npm init -y
+    npm i express mongoose ejs
+    npm i --save-dev nodemon
+    set package.json "scripts"
+
+start coding
+    create server.js file
+    create dir 'views'
+    create file 'views/index.ejs'
+    create dir 'routes'
+    create file 'routes/articles.js'
+
+npm i method-override   // to call delete method from form
+npm i dompurify jsdom   // dompurify will sanitize the html, jsdom renders html inside nodejs
+npm i marked slugify    // marked creates markdown and turn it into html, slugify converts any field to user friendly url
+
+npm i browserify   // import one js file to another in frontend -> X not working
+npm i browserify -g   // import one js file to another in frontend -> X not working
+
+npm uninstall browserify   // uninstalled from local
+npm uninstall browserify -g   // uninstalled from global
+

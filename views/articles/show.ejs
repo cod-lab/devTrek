@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> -->
+
+    <link rel="stylesheet" href="/stylesheets/show.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/footer.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css"/>
+
+    <title>Read More</title>
+</head>
+<body onload="refreshPg('<%= activeLikeBtns %>','<%= article.id %>')">
+    <div class="container mt-4">
+        <!-- <div class="row justify-content-md-center"> -->
+        <!-- <div class="row row-cols-2"> -->
+            <!-- <div class="col-md-auto">
+                <h1 id="div1"><%= article.title %></h1>
+            </div>
+            <div class="col text-muted mt-4" id="div1">
+                <%= article.createdAt %>
+            </div> -->
+            <!-- <div class="col"><hr></div> -->
+        <!-- </div> -->
+        <div class="row">
+            <div class="col"><h1><%= article.title %></h1></div>
+            <!-- <div class="col text-right font-italic mt-4" title="createdAt"><%= article.createdAt %></div> -->
+            <div class="col-1 text-right font-italic mt-4 createdAt">
+                <%= article.displayDate %>
+                <span>createdAt</span>
+            </div>
+        </div>
+
+        <hr>
+        <!-- <h5 class="card-title" title="editor"><%= article.name %> &#128102;&#127995;</h5> -->
+        <h5 class="card-title mb-4 mt-4">
+            <%= article.name %> &#128102;&#127995;
+            <span>editor</span>
+        </h5>
+        <div class="card-text mb-4" id="desc"><%- article.modifiedDesc %></div>
+        <hr>
+
+        <a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article.id %>')">All Articles &#128218;</a>
+        <a href="/articles/edit/<%= article.id%>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>','<%= article.id %>')">Edit &#128221;</a>
+        <a href="#" class="likeBtn" id="like2"
+            onmouseover="mouseOverLike()"
+            onmouseout="mouseOutLike()"
+            onclick="mouseClickLike('<%= activeLikeBtns %>','<%= article.id %>')"
+        >
+        <!-- <a href="#" class="likeBtn" id="like2" onclick="mouseClickLike(this,'<%= /*likeBtnState*/ %>')"> -->
+            <!-- <i class="bi bi-heart" id="heart"></i>&nbsp;&nbsp;<p class="d-inline">123</p> -->
+            <img src="/images/likebtns/heart-empty.png" id="heart">
+            &nbsp;<p class="d-inline"><%= article.likes %></p>
+            <!-- <svg class="bi" width="32" height="32" fill="currentColor">
+                <use xlink:href="bootstrap-icons.svg#heart-fill"/>
+            </svg> -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/></svg> -->
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+            </svg> -->
+            <!-- <object data="/images/likebtn/heart-empty.svg" fill="white"></object> -->
+            <!-- <svg></svg> -->
+            <!-- &nbsp;<p class="d-inline">123</p> -->
+            <span>like</span>
+        </a>
+
+        <!-- <div class="mt-5" id="md" title="markdown"><%- article.sanitizedHtml %></div> -->
+        <div class="mt-5" id="md">
+            <%- article.sanitizedHtml %>
+            <span>markdown</span>
+        </div>
+    </div>
+    <br><br>
+    <%- include('_footer') %>       <!-- _footer common to all pages -->
+    <script src="/scripts/show.js"></script>
+</body>
+</html>
+

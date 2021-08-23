@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/stylesheets/show.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/footer.css" type="text/css"/>
+    <link rel="stylesheet" href="/stylesheets/common.css" type="text/css"/>
+
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <!-- <div class="row justify-content-md-center"> -->
+        <!-- <div class="row row-cols-2"> -->
+            <!-- <div class="col-md-auto">
+                <h1 id="div1"><%= article.title %></h1>
+            </div>
+            <div class="col text-muted mt-4" id="div1">
+                <%= article.createdAt %>
+            </div> -->
+            <!-- <div class="col"><hr></div> -->
+        <!-- </div> -->
+        <div class="row">
+            <div class="col"><h1><%= article.title %></h1></div>
+            <!-- <div class="col text-right font-italic mt-4" title="createdAt"><%= article.createdAt %></div> -->
+            <div class="col-1 text-right font-italic mt-4 createdAt">
+                <%= article.createdAt %>
+                <span>createdAt</span>
+            </div>
+        </div>
+
+        <hr>
+        <!-- <h5 class="card-title" title="editor"><%= article.name %> &#128102;&#127995;</h5> -->
+        <h5 class="card-title">
+            <%= article.name %> &#128102;&#127995;
+            <span>editor</span>
+        </h5>
+        <div class="card-text mb-4" id="desc"><%= article.description %></div>
+        <hr>
+
+        <a href="/" class="btn btn-secondary">All Articles &#128218;</a>
+        <a href="/articles/edit/<%= article.id%>" class="btn btn-info">Edit &#128221;</a>
+
+        <!-- <div class="mt-5" id="md" title="markdown"><%- article.sanitizedHtml %></div> -->
+        <div class="mt-5" id="md">
+            <%- article.sanitizedHtml %>
+            <span>markdown</span>
+        </div>
+    </div>
+    <br><br>
+    <%- include('_footer') %>       <!-- _footer common to all pages -->
+</body>
+</html>
+

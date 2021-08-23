@@ -1,0 +1,85 @@
+/* @import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css); */
+body {
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+    /* height:auto; */
+}
+/* *[title]:hover::after {
+    content: attr(title);
+    background-color: gray; */
+    /* position: absolute; */
+  /* top: -100%;
+  left: 0; */
+    /* color: white;
+    font-size: 10px;
+} */
+
+.createdAt span,
+.likeBtn span,
+h5 span,
+#md span,
+.footer label span {
+  /* visibility: hidden; */
+  display: none;
+  /* width: 80px; */
+  background-color: #404040;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  /* top: 5px; */
+  /* left: 54%; */
+  font-size: 10px;
+  /* transition: display 200s; */
+  animation: hidetooltiptext 0s 2s forwards;
+}
+
+/* for arrow with the span box */
+.createdAt span::after,
+h5 span::after,
+#like2 span::after,    /* for pg show.ejs*/
+#md span::after,
+.footer label span::after {
+  content: "";
+  position: absolute;
+  border-width: 5px;
+  border-style: solid;
+}
+.createdAt span::after,
+#like2 span::after,
+.footer label span::after {
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-color: transparent #404040 transparent transparent;
+}
+
+.createdAt:hover span,
+.likeBtn:hover span,
+h5:hover span,
+#md:hover span,
+.footer label:hover span {
+  display: inline;
+  /* visibility: visible; */
+  /* transition: display 2s; */
+}
+
+.likeBtn:active span {
+  display: none;
+  /* visibility: hidden; */
+}
+
+@keyframes hidetooltiptext {
+  to { visibility: hidden; }
+}
+
+/*.likeBtn:active {
+  transform: scale(1.04);     /* resize all sides together */
+/* } */
+
+/* div {    border: 1px solid black; } */
