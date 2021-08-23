@@ -54,7 +54,7 @@ app.all('*', (_,res) => res.send('<br><h2><center>404!<br>Page not found...</cen
 // const [host, port] = ['localhost', process.env.PORT || 5000];
 const { HOST:host='localhost', PORT:port=5000 } = process.env;
 // app.listen(port).then(console.log(`Connection is established at http://${host}:${port}`));
-app.listen(port, () => console.log(`Connection is established at http://${host}:${port}`));
+app.listen(port, () => console.log(`Connection is established at \nhttp://${host}:${port} OR \nhttps://devtrek.herokuapp.com\n`));
 // mongoose.connect('mongodb://localhost/blog',
     // {
         // useNewUrlParser: true,

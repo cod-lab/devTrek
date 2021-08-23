@@ -19,6 +19,17 @@
     font-size: 13px;
     /* line-height: 3rem; */    /* get content in the middle of its parent ele */
 }
+.brand {
+    color: black;
+    font-weight: bold;
+}
+.brand:hover {
+    text-decoration: none;
+    color: #585858;
+}
+.brand:active {
+    color: black;
+}
 img {
     /* transform: rotate(-20deg); */
     /* transform: translateY(180px); */

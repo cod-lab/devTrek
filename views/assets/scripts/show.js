@@ -1,6 +1,6 @@
 // const { callApi, apiConfig } = require('./common');
 
-const imgUrl = 'http://localhost:5000/images/likebtns/';
+const imgUrl = '/images/likebtns/';
 const heart = document.getElementById('heart');
 
 function refreshPg(activeLikeBtns, id) {
