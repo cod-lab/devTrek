@@ -21,3 +21,5 @@ npm i browserify -g   // import one js file to another in frontend -> X not work
 npm uninstall browserify   // uninstalled from local
 npm uninstall browserify -g   // uninstalled from global
 
+npm install serve-favicon
+

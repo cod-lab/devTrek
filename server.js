@@ -1,6 +1,7 @@
 const express = require('express');
 // const mongoose = require('mongoose');
 // const fs = require('fs').promises;
+const favicon = require('serve-favicon');
 const path = require('path');
 const methodOverride = require('method-override');
 
@@ -9,6 +10,7 @@ const { readController } = require('./backend/controllers/articles');
 
 const app = express();
 
+app.use(favicon(path.join(__dirname, 'backend', 'favicon.png')));
 app.set('views', path.join(__dirname, 'frontend/views'));
 app.set('view engine','ejs');
 

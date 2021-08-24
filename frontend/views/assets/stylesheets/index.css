@@ -3,7 +3,7 @@
     50% { opacity: 0; }
 }
 body {
-    background-image: url("/images/backgrounds/g.jpg");
+    background-image: url("/graphics/backgrounds/g.jpg");
     /* background-size: cover;
     background-attachment: fixed; */
     /* filter: blur(35px); */

@@ -1,5 +1,5 @@
 body {
-    background-image: url("/images/backgrounds/b.jpg");
+    background-image: url("/graphics/backgrounds/b.jpg");
     backdrop-filter: blur(5px);
     /* backdrop-filter: grayscale(1); */
     /* backdrop-filter: invert(.7); */
