@@ -1,13 +1,13 @@
 {
-  "name": "3_Markdown-blogs",
+  "name": "basic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start2": "nodemon server.js",
     "start1": "nodemon --exec node experimental-modules server.js",
-    "start": "nodemon --ignore db.json server.js"
+    "start": "nodemon --ignore backend/db.json server.js"
   },
   "keywords": [],
   "author": "",

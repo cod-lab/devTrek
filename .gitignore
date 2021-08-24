@@ -28,7 +28,7 @@ yarn-error.log*
 .env
 # *.png
 # *.jpg
-# *.txt
+*.txt
 error_logs
 
 
@@ -50,4 +50,4 @@ error_logs
 # !backend/api's\surls.txt
 # !backend/some\ condns.txt
 
-updates.txt
+!steps.txt

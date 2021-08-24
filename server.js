@@ -1,13 +1,15 @@
 const express = require('express');
 // const mongoose = require('mongoose');
 // const fs = require('fs').promises;
+const path = require('path');
 const methodOverride = require('method-override');
 
-const articleRoute = require('./routes/articles');
-const { readController } = require('./controllers/articles');
+const articleRoute = require('./backend/routes/articles');
+const { readController } = require('./backend/controllers/articles');
 
 const app = express();
 
+app.set('views', path.join(__dirname, 'frontend/views'));
 app.set('view engine','ejs');
 
 app.use(express.urlencoded({ extended: "false" }));     // parse data sent thru html form
@@ -47,7 +49,7 @@ app.get(/^\/(home)*$/, (_, res) => readController(res,null,'index')
 
 app.use('/articles',articleRoute);
 
-app.use(express.static('views/assets'));    // for creating link for external style and script files to link in ejs files
+app.use(express.static('frontend/views/assets'));    // for creating link for external style and script files to link in ejs files
 
 app.all('*', (_,res) => res.send('<br><h2><center>404!<br>Page not found...</center></h2>'));
 

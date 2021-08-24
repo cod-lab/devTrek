@@ -28,7 +28,7 @@ exports.newController = res => res.render('articles/new', { article: {}, activeL
 exports.readController = async (res, id, pg) => {
     // console.log('srcPg',srcPg,'-> id',id,'\npg',pg,'\n3 activeLikeBtns',activeLikeBtns,typeof activeLikeBtns);
     try {
-        const response = await fs.readFile('db.json','utf8') || '[]';
+        const response = await fs.readFile('backend/db.json','utf8') || '[]';
         const articles = await JSON.parse(response);
         if(pg === 'index') {        // [GET], index pg
             // articles.sort((a,b) => b.id - a.id);    // sort objects inside array in descending order of articles[i].id
@@ -114,7 +114,7 @@ exports.writeController = async (req, res, event, pg) => {
         article.slug = slugify(article.title, { lower: true, strict: true });     // generate string to use as url
         article.sanitizedHtml = dompurify.sanitize(marked(article.markdown));   // convert markdown to html and purify the html
 
-        const response = await fs.readFile('db.json','utf8') || '[]';        // read from file
+        const response = await fs.readFile('backend/db.json','utf8') || '[]';        // read from file
         const articles = await JSON.parse(response);
 
         if(!id) {        // [POST], new article
@@ -143,7 +143,7 @@ exports.writeController = async (req, res, event, pg) => {
             articles.splice(i,1,article);
         }
 
-        await fs.writeFile('db.json',JSON.stringify(articles));        // write to file
+        await fs.writeFile('backend/db.json',JSON.stringify(articles));        // write to file
 
         res.redirect(`/articles/${article.id}`);        // api calling
     } catch (err) {
@@ -154,12 +154,13 @@ exports.writeController = async (req, res, event, pg) => {
 
 exports.deleteController = async (req, res) => {
     try {
-        const response = await fs.readFile('db.json','utf8') || '[]';        // read from file
+        const response = await fs.readFile('backend/db.json','utf8') || '[]';        // read from file
         const articles = await JSON.parse(response);
         const i = articles.findIndex(article => article.id === req.params.id);
         if(i === -1) return res.status(404).send('Unable to delete article!');
+        if(i < 5) return res.status(405).send("Can't delete first 5 articles currently!\nTry again later...");
         articles.splice(i,1);    // delete requested article
-        await fs.writeFile('db.json',JSON.stringify(articles));        // write to file
+        await fs.writeFile('backend/db.json',JSON.stringify(articles));        // write to file
         res.redirect('/');
     } catch (err) {
         console.log('err ->',err);
@@ -176,7 +177,7 @@ exports.likeController = async (req, res) => {
     const { body:{ data:likeBtnState }, params:{ id } } = req;
     // console.log('->',req.body,req.params, typeof likeBtnState,req.method);
     try {
-        const response = await fs.readFile('db.json','utf8') || [];
+        const response = await fs.readFile('backend/db.json','utf8') || [];
         const articles = await JSON.parse(response);
 
         // console.log('likeController');
@@ -191,7 +192,7 @@ exports.likeController = async (req, res) => {
         if(i === -1) return res.sendStatus(500);
 
         res.status(200).json({ likes: likeBtnState ? ++articles[i].likes : --articles[i].likes });
-        await fs.writeFile('db.json', JSON.stringify(articles));
+        await fs.writeFile('backend/db.json', JSON.stringify(articles));
     } catch (err) {
         console.log('err ->',err);
         res.send(err);
