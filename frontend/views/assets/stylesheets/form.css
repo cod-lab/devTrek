@@ -1,88 +1,43 @@
 body {
     background-image: url("/graphics/backgrounds/b.jpg");
     backdrop-filter: blur(5px);
-    /* backdrop-filter: grayscale(1); */
-    /* backdrop-filter: invert(.7); */
-    /* backdrop-filter: opacity(0) */
-    /* line-height: 100vh; */
+    min-height: 100vh;  /* set body height minimum 100% to fix footer at the bottom if content is less also */
 }
+
 h1 { color: white; }
-#description {
-    /* height: auto; */
-    /* min-height: 20px; */
-    /* max-height: 280px; */
-    /* max-height: max-content; */
-    height: 180px;
-    /* overflow: scroll; */
-    /* overflow-x: hidden; */
-    /* resize: none; */
-}
-/* #description::-webkit-scrollbar, #markdown::-webkit-scrollbar { */
-    /* visibility: hidden; */
-    /* width: 10px; */
-    /* color: black; */
-    /* background-color: transparent; */
-    /* opacity: 0.5; */
-    /* display: none; */
-    /* z-index: -1; */
-    /* resize: none; */
-/* } */
-/* ::-webkit-scrollbar-corner { background: transparent; */
-/* border: 0px solid black; */
-/* box-shadow: 1px 1px 10px 1px black; */
-/* } */
-/* ::-webkit-scrollbar-track { background: transparent;
-border: 10px solid black;
-} */
-#markdown {
-    /* height: auto; */
-    /* max-height: 160px; */
-    height: 135px;
-    /* overflow: auto; */
-    /* overflow: scroll; */
-    /* overflow-x: hidden; */
-}
+
+#description { height: 180px; }
+
+#markdown { height: 135px; }
+
 #description, #markdown {
     overflow: scroll;
     overflow-x: hidden;
 }
+
 #description::-webkit-scrollbar, #markdown::-webkit-scrollbar {
     width: 8.5px;
-    /* height: 0px; */
 }
-#description::-webkit-scrollbar-corner, #markdown::-webkit-scrollbar-corner { background: transparent; }
+
+#description::-webkit-scrollbar-corner, #markdown::-webkit-scrollbar-corner {
+    background: transparent;
+}
 
 .form-group label {
     color: black;
-    /* color: #fff; */
     text-shadow:
-    /* 0px 0px 5px gray; */
-    /* 0 0 5px white; */
     0 0 5px silver;
-    /* text-shadow: 0px 0px 2px silver; */
-    /* text-shadow: 1px 1px 3px #A9A9A9; */
-    /* text-shadow:
-        0 0 5px #fff,
-        0 0 10px #fff,
-        0 0 20px #fff,
-        0 0 40px #0ff,
-        0 0 80px #0ff,
-        0 0 90px #0ff,
-        0 0 100px #0ff,
-        0 0 150px #0ff; */
     font-size: 13px;
     font-weight: 600;
 }
+
 .form-control, .form-control:focus {
     background: transparent;
-    /* opacity: 0.80; */
     border: 2px solid rgb(46, 140, 177);
     color:  white;
-    /* box-shadow: rgb(46, 140, 177) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset; */
-    /* box-shadow: rgb(46, 140, 177) 0px 0px 5px 2px inset, */
-    /* box-shadow: inset 0px 0px 5px 0px rgba(46, 140, 177); */
 }
+
 .form-control:focus {
-    /* box-shadow: inset 0px 0px 5px 0px rgb(166, 209, 223); */
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.432);
 }
+

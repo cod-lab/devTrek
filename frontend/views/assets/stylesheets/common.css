@@ -1,30 +1,16 @@
-/* @import url(https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css); */
 body {
     background-size: cover;
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    /* height: 100vh; */
-    /* height:auto; */
 }
-/* *[title]:hover::after {
-    content: attr(title);
-    background-color: gray; */
-    /* position: absolute; */
-  /* top: -100%;
-  left: 0; */
-    /* color: white;
-    font-size: 10px;
-} */
 
 .createdAt span,
 .likeBtn span,
 h5 span,
 #md span,
 .footer label span {
-  /* visibility: hidden; */
   display: none;
-  /* width: 80px; */
   background-color: #404040;
   color: #fff;
   text-align: center;
@@ -32,10 +18,7 @@ h5 span,
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  /* top: 5px; */
-  /* left: 54%; */
   font-size: 10px;
-  /* transition: display 200s; */
   animation: hidetooltiptext 0s 2s forwards;
 }
 
@@ -50,6 +33,7 @@ h5 span::after,
   border-width: 5px;
   border-style: solid;
 }
+
 .createdAt span::after,
 #like2 span::after,
 .footer label span::after {
@@ -65,21 +49,11 @@ h5:hover span,
 #md:hover span,
 .footer label:hover span {
   display: inline;
-  /* visibility: visible; */
-  /* transition: display 2s; */
 }
 
-.likeBtn:active span {
-  display: none;
-  /* visibility: hidden; */
-}
+.likeBtn:active span {  display: none; }
 
 @keyframes hidetooltiptext {
   to { visibility: hidden; }
 }
 
-/*.likeBtn:active {
-  transform: scale(1.04);     /* resize all sides together */
-/* } */
-
-/* div {    border: 1px solid black; } */
