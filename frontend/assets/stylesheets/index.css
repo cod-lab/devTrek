@@ -21,7 +21,8 @@ body {
     box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
 }
 
-.new:active, .new:visited { color: white; }
+/* .new:active, .new:visited { color: white; } */
+.new:active { color: white; }
 
 .card.mt-4 {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;

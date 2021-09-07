@@ -35,16 +35,16 @@
 
                     <div class="row">
                         <div class="col">
-                            <a href="/articles/<%= article.id %>" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>')">Read More &#129488;</a>
-                            <a href="/articles/edit/<%= article.id %>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>')">Edit &#128221;</a>
-                            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                            <a href="/articles/<%= article._id %>" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>')">Read More &#129488;</a>
+                            <a href="/articles/edit/<%= article._id %>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>')">Edit &#128221;</a>
+                            <form action="/articles/<%= article._id %>?_method=DELETE" method="POST" class="d-inline">
                                 <button type="submit" class="btn btn-danger">Delete &#128465;</button>
                             </form>
                         </div>
 
                         <div class="col text-right mt-2">
-                            <label id="<%= article.id %><%= article.id %>"><%= article.likes %></label>
-                            <a href="#" class="likeBtn" id="<%= article.id %>"
+                            <label id="<%= article._id %><%= article._id %>"><%= article.likes %></label>
+                            <a href="#" class="likeBtn" id="<%= article._id %>"
                                 onmouseover="mouseOverLike(this)"
                                 onmouseout="mouseOutLike(this)"
                                 onclick="mouseClickLike(this,'<%= activeLikeBtns %>')"
@@ -52,7 +52,7 @@
                                 ♥
                                 <span>like</span>
                             </a>
-                            <label class="editor">By <%= article.name %></label>
+                            <label class="editor">By <%= article.username %></label>
                         </div>
                     </div>
                 </div>

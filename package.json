@@ -1,30 +1,34 @@
 {
   "name": "basic",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.1.0",
+  "description": "Blog site using MERN stack",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start2": "nodemon server.js",
+    "start": "nodemon server.js",
     "start1": "nodemon --exec node experimental-modules server.js",
-    "start": "nodemon --ignore backend/db.json server.js"
+    "start2": "nodemon --ignore backend/db.json server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["nodejs", "express", "mongodb", "blog app", "subsidiary"],
+  "author": "https://github.com/cod-lab",
   "license": "ISC",
   "dependencies": {
-    "nodemon": "^2.0.12",
-    "express": "^4.17.1",
-    "serve-favicon": "^2.5.0",
     "dompurify": "^2.3.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
     "jsdom": "^16.6.0",
     "marked": "^2.1.3",
-    "slugify": "^1.6.0",
-    "ejs": "^3.1.6",
-    "method-override": "^3.0.0"
+    "method-override": "^3.0.0",
+    "mongoose": "^5.13.3",
+    "nodemon": "^2.0.12",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "mongoose": "^5.13.3"
+    "dotenv": "^10.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cod-lab/devTrek.git"
   }
 }
 

@@ -22,4 +22,9 @@ npm uninstall browserify   // uninstalled from local
 npm uninstall browserify -g   // uninstalled from global
 
 npm install serve-favicon
+npm install --save mongoose-unique-validator
+npm install dotenv
+
+npm uninstall slugify   // (irrelevant)
+npm uninstall mongoose-unique-validator   // (irrelevant)
 

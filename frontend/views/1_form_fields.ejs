@@ -1,11 +1,11 @@
 <div class="form-group">
     <label for="name">Username</label>
-    <input value="<%= article.name %>" type="text" name="name" id="name" class="form-control">
+    <input value="<%= article.username %>" type="text" name="username" id="name" class="form-control" autocomplete="off">
 </div>
 
 <div class="form-group">
     <label for="title">Title</label>
-    <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+    <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control" autocomplete="off">
 </div>
 
 <div class="form-group">
@@ -22,6 +22,6 @@
     </textarea>
 </div>
 
-<a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article.id %>')">Cancel</a>
-<button type="submit" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>','<%= article.id %>')">Save</button>
+<a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article._id %>')">Cancel</a>
+<button type="submit" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>','<%= article._id %>')">Save</button>
 

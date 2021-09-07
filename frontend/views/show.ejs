@@ -12,7 +12,7 @@
 
     <title>Read More</title>
 </head>
-<body onload="refreshPg('<%= activeLikeBtns %>','<%= article.id %>')">
+<body onload="refreshPg('<%= activeLikeBtns %>','<%= article._id %>')">
     <div class="container mt-4">
         <div class="row">
             <div class="col"><h1><%= article.title %></h1></div>
@@ -24,18 +24,18 @@
 
         <hr>
         <h5 class="card-title mb-4 mt-4">
-            <%= article.name %> &#128102;&#127995;
+            <%= article.username %> &#128102;&#127995;
             <span>editor</span>
         </h5>
         <div class="card-text mb-4" id="desc"><%- article.modifiedDesc %></div>
         <hr>
 
-        <a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article.id %>')">All Articles &#128218;</a>
-        <a href="/articles/edit/<%= article.id%>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>','<%= article.id %>')">Edit &#128221;</a>
+        <a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article._id %>')">All Articles &#128218;</a>
+        <a href="/articles/edit/<%= article._id%>" class="btn btn-info" onclick="mouseClickEdit('<%= activeLikeBtns %>','<%= article._id %>')">Edit &#128221;</a>
         <a href="#" class="likeBtn" id="like2"
             onmouseover="mouseOverLike()"
             onmouseout="mouseOutLike()"
-            onclick="mouseClickLike('<%= activeLikeBtns %>','<%= article.id %>')"
+            onclick="mouseClickLike('<%= activeLikeBtns %>','<%= article._id %>')"
         >
             <img src="/graphics/likebtns/heart-empty.png" id="heart">
             &nbsp;<p class="d-inline"><%= article.likes %></p>

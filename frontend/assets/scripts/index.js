@@ -50,13 +50,29 @@ async function mouseClickLike(btn, activeLikeBtns) {
         }
 
         const response = await callApi(`/articles/like/${id}`,'PATCH',likeBtnState);    // stores no. of likes in db
-        const { likes } = await response.json();
-        document.getElementById(id + id).innerText = likes;
+        // console.log(response.status,typeof response.status);
+        // console.log(response.body,typeof response.body);
+        // console.log(response.json());
+        // console.log(response.body,typeof response.body);
+        // const { likes } = await response.json();
+        // const { likes } = 1; // await response.json();
+        // if(likes) document.getElementById(id + id).innerText = likes;
+        // else {
+        //     alert('something went wrong!');
+
+        // }
+        if(response.status !== 200) return alert('something went wrong!');
+        // else const { likes } = await response.json();    // invalid declaration
+        else {
+            const { likes } = await response.json();
+            document.getElementById(id + id).innerText = likes;
+        }
+        // console.log('after alert');
 
         await callApi(`/articles/${id}`,'POST',activeLikeBtnsCache);        // stores active like btns in memory(preserved until home pg is not refresh)
 
         likeBtn = 'clicked';
-} catch (err) {
+    } catch (err) {
         console.log('err ->',err);
     }
 }

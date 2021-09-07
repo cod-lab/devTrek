@@ -15,10 +15,11 @@ const mouseOverLike = () => common('heart-empty','heart-fill2');
 const mouseOutLike = () => common('heart-fill2','heart-empty');
 
 
-const callApi = (api, method, data, pg) => fetch(api, {
+// const callApi = (api, method, data, pg) => fetch(api, {
+const callApi = (api, method, data) => fetch(api, {
     method,
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ data, pg })
+    body: JSON.stringify({ data, pg: 'show' })
 });
 
 let activeLikeBtnsCache = [];
@@ -27,7 +28,7 @@ let likeBtn;
 async function mouseClickLike(activeLikeBtns, id) {
     event.preventDefault();     // prevent pg from default reloading, default submitting, or default redirecting
 
-    likeBtn = 'clicked';
+    // likeBtn = 'clicked';
     try {
         let likeBtnState;
         activeLikeBtnsCache = activeLikeBtns ? activeLikeBtns.split(',') : activeLikeBtnsCache;
@@ -47,23 +48,29 @@ async function mouseClickLike(activeLikeBtns, id) {
         }
 
         const response = await callApi(`/articles/like/${id}`,'PATCH',likeBtnState);    // stores no. of likes in db
-        const { likes } = await response.json();
-        document.getElementsByClassName('d-inline')[0].innerText = likes;
+        if(response.status !== 200) return alert('something went wrong!');
+        else {
+            const { likes } = await response.json();
+            document.getElementsByClassName('d-inline')[0].innerText = likes;
+        }
 
         await callApi(`/articles/${id}`,'POST',activeLikeBtnsCache);        // stores active like btns in memory(preserved until home pg is not refresh)
+
+        likeBtn = 'clicked';
     } catch (err) {
         console.log('err ->',err);
     }
 }
 
 
-async function apiConfig(activeLikeBtns, id, pg) {
+async function apiConfig(activeLikeBtns, id) { // , pg) {
     try {
-        await callApi(`/articles/${id}`,'POST',likeBtn ? activeLikeBtnsCache : activeLikeBtns,pg);        // stores active like btns in memory to transfer to another pg
+        await callApi(`/articles/${id}`,'POST',likeBtn ? activeLikeBtnsCache : activeLikeBtns); // ,pg);        // stores active like btns in memory to transfer to another pg
     } catch (err) {
         console.log('err ->',err);
     }
 }
-const mouseClickIndex = (activeLikeBtns, id) => apiConfig(activeLikeBtns,id,'show');
-const mouseClickEdit = apiConfig;
+// const mouseClickIndex = (activeLikeBtns, id) => apiConfig(activeLikeBtns,id,'show');
+// const mouseClickEdit = (activeLikeBtns, id) => apiConfig(activeLikeBtns,id,'show');
+const [mouseClickIndex, mouseClickEdit] = [apiConfig,apiConfig];
 

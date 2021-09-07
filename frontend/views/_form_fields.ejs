@@ -1,0 +1,33 @@
+<div class="form-group">
+    <label for="name">Username</label>
+    <span id="name-err"><strong>*</strong>invalid or smaller username</span>
+    <!-- <input value="<%= article.username %>" type="text" name="username" id="name" class="form-control" minlength="3" maxlength="20" autocomplete="off"> -->
+    <input value="<%= article.username %>" type="text" name="username" id="name" class="form-control" autocomplete="off">
+</div>
+
+<div class="form-group">
+    <label for="title">Title</label>
+    <span id="title-err"><strong>*</strong>invalid or smaller title</span>
+    <!-- <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control" minlength="5" maxlength="25" autocomplete="off" pattern="[a-zA-z]{5,}[\d\s]*" title="enter appropriate title"> -->
+    <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control" autocomplete="off">
+</div>
+
+<div class="form-group">
+    <label for="description">Description</label>
+    <span id="desc-err"><strong>*</strong>invalid or smaller description</span>
+    <!-- <textarea required name="originalDesc" id="description" class="form-control" minlength="50" maxlength="250"> -->
+    <textarea required name="originalDesc" id="description" class="form-control"><%= article.originalDesc %></textarea>
+</div>
+
+<div class="form-group">
+    <label for="markdown">Markdown</label>
+    <span id="md-err"><strong>*</strong>invalid or smaller markdown</span>
+    <!-- <textarea required name="markdown" id="markdown" class="form-control" minlength="20" maxlength="120"> -->
+    <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
+</div>
+
+<!-- <a href="/" class="btn btn-secondary" onclick="mouseClickIndex('<%= activeLikeBtns %>','<%= article._id %>')">Cancel</a> -->
+<a href="<%= srcPg ? '/articles/'+article._id : '/' %>" class="btn btn-secondary" onclick="mouseClickCancel('<%= activeLikeBtns %>','<%= article._id %>','<%= srcPg %>')">Cancel</a>
+<!-- <button type="submit" class="btn btn-primary" onclick="mouseClickShow('<%= activeLikeBtns %>','<%= article._id %>')">Save</button> -->
+<button type="submit" class="btn btn-primary">Save</button>
+

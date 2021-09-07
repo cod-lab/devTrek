@@ -25,27 +25,30 @@ const router = express.Router();
 // router.patch('/like/:id', likeController);
 
 // router.route('/articles')
-router.get('/new', (_, res) => newController(res));
+// router.get('/new', (_, res) => newController(res));
 
-router.post('/:id', ({ body }, res) => preserveLikeBtnsStateController(res,body));
+// router.post('/:id', ({ body }, res) => preserveLikeBtnsStateController(res,body));
 
-router.get('/:id', ({ params: { id } }, res, next) => readController(res,next,id,'show'));
+// router.get('/:id', ({ params: { id } }, res, next) => readController(res,next,id,'show'));
 
 // router.post('/', (req, res, next) => writeController(req,res,next,'createdAt','new'));
 // router.post('/', (req, res, next) => writeController(req,res,next,'new'));
-router.post('/', (req, res, next) => writeController(req,res,next,'post'));
+// router.post('/', (req, res, next) => writeController(req,res,next,'post'));
 
-router.get('/edit/:id', ({ params: { id } }, res, next) => readController(res,next,id,'edit'));
+// router.get('/edit/:id', ({ params: { id } }, res, next) => readController(res,next,id,'edit'));
 
 // router.put('/:id', (req, res, next) => writeController(req,res,next,'updatedAt','edit'));
 // router.put('/:id', (req, res, next) => writeController(req,res,next,'edit'));
-router.put('/:id', (req, res, next) => writeController(req,res,next,'update'));
+// router.put('/:id', (req, res, next) => writeController(req,res,next,'update'));
 
 // router.delete('/:id', (req, res) => deleteController(res,req.params.id));
-router.delete('/:id', ({ params: { id } }, res, next) => deleteController(res,next,id));
-
+// router.delete('/:id', ({ params: { id } }, res, next) => deleteController(res,next,id));
+// console.log('routes');
 // router.patch('/like/:id', likeController);
+// router.patch('/like/:id([a-z0-9]{24})', () => console.log('like'),likeController);
+// router.patch('/like/:id', (q,s,next) => {console.log('like'); next();},likeController);
 router.patch('/like/:id', (req, res, next) => likeController(req, res, next));
+// console.log('routes');
 
 // router.get('/powered-by', (_, res) => res.render('articles/powered-by'));    // not working
 // router1.get('/powered-by', (_, res) => res.render('powered-by'));    // not working

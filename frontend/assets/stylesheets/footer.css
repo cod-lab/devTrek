@@ -9,18 +9,27 @@
 
 .footer label { font-size: 13px; }
 
-.brand {
+.sub-brand {
     color: black;
     font-weight: bold;
 }
 
-.brand:hover {
+.sub-brand:hover {
     text-decoration: none;
     color: #585858;
 }
 
-.brand:active {
+.sub-brand:active {
     color: black;
+}
+
+.brand { color: black; }
+
+.brand:hover { text-decoration: none; }
+
+.brand:hover p {
+    color: black;
+    text-decoration: underline;
 }
 
 img {
