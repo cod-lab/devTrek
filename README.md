@@ -26,7 +26,7 @@ A Blogging App
 | -------- | -------- |
 | Frontend | *Embedded JS 3.1.6* &nbsp;`JS Template Engine` |
 | Backend | *Express JS 4.17.1* &nbsp;`JS Server Framework` |
-| Database | *Mongodb Atlas* |
+| Database | *Mongodb Atlas* &nbsp;`NoSQL DB` |
 | Server | *Node JS* &nbsp;`JS Runtime Environment` |
 | IDE | *VS Code* |
 | API Manager(for testing api's) | *Postman* |
