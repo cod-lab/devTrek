@@ -13,9 +13,10 @@ A Blogging App
 `This is app lets users to post blogs relating to the wide domain of technology`
 
 * This is the basic version of the project. The app will be updated time to time with new features.
+* User can perform **CRUD** operations using **RESTful API's** on the posts.
 * The project is **Continuous Deployment** enabled, i.e., any changes made to the project(in git repo) will automatically be deployed.
 * This project lets users to write down their experiences and discoveries about the technologies to the world.
-* Users can do **CRUD** operations on their posts.
+* This is not limited to Software technologies but also welcomes hardware technologies.
 
 <br>
 
