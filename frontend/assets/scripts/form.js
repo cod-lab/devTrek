@@ -48,6 +48,34 @@ function allowedSpclChars(string) {
         .replace(/_{2,}/g,'_');
 }
 
+function activateErr(err) {
+    err.display = 'inline';
+    return false;
+}
+function deactivateTextBoxErr(err,ele,string) {
+    err.display = 'none';
+    ele.value = allowedSpclChars(string);
+}
+function deactivateTextAreaErr(err,ele,string) {
+    err.display = 'none';
+    ele.value = string;
+}
+/*function x(a, b, c, e, f) {
+    if(c.id === 'name') {
+        if(a && (chkStringLength(a,e,f) || chkSpclChars.test(a))) return y(b);
+        else z(a,b,c);
+    } else if(c.id === 'title') {
+        if(!a || chkStringLength(a,e,f) || chkSpclChars.test(a)) return y(b);
+        else z(a,b,c);
+    } else if(c.id === 'description') {
+        if(!a || chkStringLength(a,e,f)) return y(b);
+        else z(a,b,c);
+    } else if(c.id === 'markdown') {
+        if(!a || chkStringLength(a,e,f)) return y(b);
+        else z(a,b,c);
+    }
+}*/
+
 function validation(activeLikeBtns, id) {
     const eleName = document.getElementById('name');
     const nameString = eleName.value.trim();
@@ -70,38 +98,44 @@ function validation(activeLikeBtns, id) {
     // const name = eleName.value.trim();
 
     try {
-        if(nameString && (chkStringLength(nameString,3,20) || chkSpclChars.test(nameString))) {
+        if(nameString && (chkStringLength(nameString,3,20) || chkSpclChars.test(nameString))) // {
             // alert('invalid or smaller name');
             // visible err msg
             // document.getElementById('name-err').style.display = "inline";
             // document.getElementById('name-err').style.visibility = visible;
-            nameErr.display = 'inline';
-            return false;
-        } else {
+            // nameErr.display = 'inline';
+            // return false;
+            return activateErr(nameErr);
+            // if(!activateErr(nameErr)) return false;
+        // } else {
             // document.getElementById('name-err').style.display = "none";
-            nameErr.display = 'none';
+            // nameErr.display = 'none';
             // eleName.value = nameString.replace(/\s{2,}/g,' ');
-            eleName.value = allowedSpclChars(nameString);
+            // eleName.value = allowedSpclChars(nameString);
                 /*.replace(/\n|\t|\r/g,'')
                 .replace(/\s{2,}/g,' ')     // it can cover \n{2,} | \t{2,} | \r{2,}
                 .replace(/\.{2,}/g,'.')
                 .replace(/-{2,}/g,'-')
                 .replace(/_{2,}/g,'_');*/
-        }
+            deactivateTextBoxErr(nameErr,eleName,nameString);
+        // }
+        // x(nameString,nameErr,eleName,3,20);
 
-        if(!titleString || chkStringLength(titleString,5,25) || chkSpclChars.test(titleString)) {
+        if(!titleString || chkStringLength(titleString,5,25) || chkSpclChars.test(titleString)) // {
             // alert('invalid or smaller title');
             // visible err msg
             // console.log(title);
             // document.getElementById('title-err').style.display = "inline";
             // document.getElementById('title-err').style.visibility = visible;
             // titleErr.style.display = 'inline';
-            titleErr.display = 'inline';
-            return false;
-        } else {
+            // titleErr.display = 'inline';
+            // return false;
+            return activateErr(titleErr);
+            // if(!activateErr(titleErr)) return false;
+        // } else {
             // document.getElementById('title-err').style.display = "none";
             // titleErr.style.display = 'none';
-            titleErr.display = 'none';
+            // titleErr.display = 'none';
             // eleTitle.value = titleString.replace(/\s{2,}/g,' ');
             /*eleTitle.value = titleString
                 .replace(/\n|\t|\r/g,'')
@@ -109,34 +143,44 @@ function validation(activeLikeBtns, id) {
                 .replace(/\.{2,}/g,'.')
                 .replace(/-{2,}/g,'-')
                 .replace(/_{2,}/g,'_');*/
-            eleName.value = allowedSpclChars(nameString);
-        }
+            // eleName.value = allowedSpclChars(nameString);
+            deactivateTextBoxErr(titleErr,eleTitle,titleString);
+        // }
+        // x(titleString,titleErr,eleTitle,5,25);
 
         // if(!descString || chkStringLength(descString,50,250)) {
-        if(!descString || chkStringLength(descString,500,4000)) {
+        if(!descString || chkStringLength(descString,500,4000)) // {
             // alert('invalid or smaller description');
             // visible err msg
             // document.getElementById('desc-err').style.display = "inline";
             // document.getElementById('desc-err').style.visibility = visible;
-            descErr.display = 'inline';
-            return false;
-        } else {
-            descErr.display = 'none';
-            eleDesc.value = descString;
-        }
+            // descErr.display = 'inline';
+            // return false;
+            return activateErr(descErr);
+            // if(!activateErr(descErr)) return false;
+        // } else {
+            // descErr.display = 'none';
+            // eleDesc.value = descString;
+            deactivateTextAreaErr(descErr,eleDesc,descString);
+        // }
+        // x(descString,descErr,eleDesc,500,4000);
 
         // if(!mdString || chkStringLength(mdString,20,120)) {
-        if(!mdString || chkStringLength(mdString,20,2000)) {
+        if(!mdString || chkStringLength(mdString,20,2000)) // {
             // alert('invalid or smaller markdown');
             // visible err msg
             // document.getElementById('md-err').style.display = "inline";
             // document.getElementById('md-err').style.visibility = visible;
-            mdErr.display = 'inline';
-            return false;
-        } else {
-            mdErr.display = 'none';
-            eleMd.value = mdString;
-        }
+            // mdErr.display = 'inline';
+            // return false;
+            return activateErr(mdErr);
+            // if(!activateErr(mdErr)) return false;
+        // } else {
+            // mdErr.display = 'none';
+            // eleMd.value = mdString;
+            deactivateTextAreaErr(mdErr,eleMd,mdString);
+        // }
+        // x(mdString,mdErr,eleMd,20,2000);
 
     } catch (err) {
         console.log('err ->',err);
