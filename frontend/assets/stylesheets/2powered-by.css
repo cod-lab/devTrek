@@ -135,11 +135,6 @@ body {
    white-space: nowrap; */
    /* float: center; */
 /* } */
-@font-face {
-  font-family: hiddenMsgFont;
-  src: url('/fonts/1942 REPORT.TTF');
-  /* font-weight: 900; */
-}
 p {
   color: white;
   /* line-height: 115vh; */
@@ -148,11 +143,10 @@ p {
   /* left: 50%; */
   font-weight: bold;
   /* font-family: cascadia code; */
-  /* font-family: '1942 report'; */
+  font-family: '1942 report';
   /* font-family: 'Trixie-Text'; */
   /* font-family: 'recursive mono linear light lta'; */
   /* font-family: recursive mono; */
-  font-family: hiddenMsgFont;
   font-size: 45px;
   /* vertical-align: bottom; */
   /* margin-top: 60vh; */
@@ -161,8 +155,6 @@ p {
   /* text-align: center; */
   /* float: center; */
   /* display: none; */
-  letter-spacing: 1px;
-  /* word-wrap: break-word; */
   visibility: hidden;
 
   /* animation */

@@ -95,24 +95,21 @@ h1 {
     position: absolute;
 }
 
-/* #form {
-    border: 1px solid; */
-    /* min-height: auto; */
-/* } */
-/* #form { position: relative; } */
+/* #form { border: 1px solid;} */
+#form { position: relative; }
 /* .container { position: relative; } */
 /* .btn { position: absolute; } */
-/* .btn-primary { */
+.btn-primary {
     /* right: 1px; */
     /* right: 0%; */
-    /* float: right;
-} */
-/* .btn-secondary { */
+    float: right;
+}
+.btn-secondary {
     /* right: 68px; */
-    /* right: 6%; */
+    right: 6%;
     /* float: right; */
-    /* position: absolute;
-} */
+    position: absolute;
+}
 
 /* .btn-primary:active #name-err { */
 /* .btn-primary:focus #name-err { */
@@ -120,10 +117,4 @@ h1 {
     /* padding-top: 2px;
 
 } */
-
-.form-btns {
-    /* border: 1px solid; */
-    width: fit-content;
-    float: right;
-}
 
