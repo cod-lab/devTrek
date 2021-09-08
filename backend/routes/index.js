@@ -17,7 +17,7 @@ router.all('*', (req, res) => {
     console.log(`404..\nRequested url: [${req.method}] ${req.headers.host + req.originalUrl} doesn't exist!`);
 });
 
-// express err handler, global err format for printing user defined errs
+// express err handler, global err format for printing both system generated & user defined errs
 router.use((err, req, res, next) => {
     const { statusCode=500, message, stack } = err;
     const error = { statusCode, message, stack };

@@ -7,7 +7,7 @@ const articleModel = require('../models/article');
 
 const dompurify = createDomPurify(new JSDOM().window);
 
-//  global try catch block to handle both user & system generated errs
+//  global try catch block to handle both system & user generated errs
 function catchErr(fn) {
     return (a, b, c, d) => {
         if(typeof b === 'function') fn(a, b, c, d).catch(b);
