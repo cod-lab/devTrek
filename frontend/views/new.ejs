@@ -12,12 +12,10 @@
 
     <title>New Blog</title>
 </head>
-<!-- <body onload="removeSpaces('<%= article.originalDesc %>','<%= article.markdown %>')"> -->
 <body>
     <div class="container mt-4 mb-2">
         <h1 class="mb-4">New Article</h1>
         <form action="/articles" method="POST" id="form" onsubmit="return validation('<%= activeLikeBtns %>','<%= article._id %>')">
-        <!-- <form action="/articles" method="POST" id="form"> -->
             <%- include('_form_fields') %>       <!-- _form common to required pages -->
         </form>
     </div>

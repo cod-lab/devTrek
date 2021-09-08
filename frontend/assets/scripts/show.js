@@ -15,7 +15,6 @@ const mouseOverLike = () => common('heart-empty','heart-fill2');
 const mouseOutLike = () => common('heart-fill2','heart-empty');
 
 
-// const callApi = (api, method, data, pg) => fetch(api, {
 const callApi = (api, method, data) => fetch(api, {
     method,
     headers: { 'Content-Type': 'application/json' },
@@ -28,7 +27,6 @@ let likeBtn;
 async function mouseClickLike(activeLikeBtns, id) {
     event.preventDefault();     // prevent pg from default reloading, default submitting, or default redirecting
 
-    // likeBtn = 'clicked';
     try {
         let likeBtnState;
         activeLikeBtnsCache = activeLikeBtns ? activeLikeBtns.split(',') : activeLikeBtnsCache;
@@ -63,14 +61,12 @@ async function mouseClickLike(activeLikeBtns, id) {
 }
 
 
-async function apiConfig(activeLikeBtns, id) { // , pg) {
+async function apiConfig(activeLikeBtns, id) {
     try {
-        await callApi(`/articles/${id}`,'POST',likeBtn ? activeLikeBtnsCache : activeLikeBtns); // ,pg);        // stores active like btns in memory to transfer to another pg
+        await callApi(`/articles/${id}`,'POST',likeBtn ? activeLikeBtnsCache : activeLikeBtns);     // stores active like btns in memory to transfer to another pg
     } catch (err) {
         console.log('err ->',err);
     }
 }
-// const mouseClickIndex = (activeLikeBtns, id) => apiConfig(activeLikeBtns,id,'show');
-// const mouseClickEdit = (activeLikeBtns, id) => apiConfig(activeLikeBtns,id,'show');
 const [mouseClickIndex, mouseClickEdit] = [apiConfig,apiConfig];
 
